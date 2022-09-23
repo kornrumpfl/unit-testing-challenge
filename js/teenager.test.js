@@ -1,6 +1,9 @@
 import { checkTeenagerStatus } from "./teenager.js";
 
-test("returns correct teenager status", () => {
-  const teenagerStatus = checkTeenagerStatus(15);
-  expect(teenagerStatus).toBe(true);
+const cases =[
+  [11,false],[12,true],[20,true],[21,false]
+];
+
+test.each(cases)("returns correct teenager status", (age,messagestatus) => {
+  expect(checkTeenagerStatus(age)).toBe(messagestatus);
 });
